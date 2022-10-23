@@ -2,11 +2,9 @@
 
 # Apply database migrations
 echo "Apply database migrations"
+python manage.py makemigrations
 python manage.py migrate
-
-
 python manage.py migrate --run-syncdb
-python manage.py loaddata group.json users.json data.json
 
 # Start server
 echo "Starting server"
