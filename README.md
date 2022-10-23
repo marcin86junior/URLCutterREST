@@ -35,19 +35,21 @@ Version 0.8 (current)
 - app 0.8 is working on pythonanywhere
 
 Version 0.9
-- correct "HTTP 405 Method Not Allowed" on "add-view" (importatnt)
+- put code on github - OK
+- 2nd run on docker / correct docker-entrypoint.sh - OK
+- correct tests code (path changed) - OK
 - correct text after removing links (httpresponse)
-- put code on github
-- 2nd run on docker
+- correct "HTTP 405 Method Not Allowed" on "add-view" (importatnt)
 - simplify randomize link (model/view)
-- correct tests (path changed / new views)
 
 Version 1.0
+- remove page: "list view" / "remove links"
 - add celery module (will work only with docker)
-- remove "list view"
+- check docker-test in readme.md
+- correct tests code (add new views)
 
 Version 1.1
-- to correct from dblite to postgers in docker 
+- correct docker-compose.yml (dblite to postgers/ settings)
 - add front page template
 - more advanced test + covarage
 
