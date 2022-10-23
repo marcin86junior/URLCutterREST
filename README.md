@@ -26,7 +26,7 @@ Requirements:
 Roadmap
 -------
 
-Version 0.8 (current)
+Version 0.8
 - link generator is working
 - list of links is working
 - views that removes unused / used links working
@@ -34,28 +34,29 @@ Version 0.8 (current)
 - added model Link to admin
 - app 0.8 is working on pythonanywhere
 
-Version 0.9
+Version 0.9 (current)
 - put code on github - OK
 - 2nd run on docker / correct docker-entrypoint.sh - OK
 - correct tests code (path changed) - OK
-- correct text in view after removing links (httpresponse) - OK
-- correct "HTTP 405 Method Not Allowed" on "add-view" (importatnt)
-- simplify randomize link (model/view)
+- correct text in page after removing links (httpresponse) - OK
+- setup celery + redis + "test task every 1min" - OK
+- add 3 celery tasks  10min / 1h / 1day - TODO (30min-1h)
 
 Version 1.0
 - remove page: "list view" / "remove links" - ON HOLD
-- add celery module (will work only with docker)
-- check docker-test in readme.md
-- correct tests code (add new views)
+- correct "HTTP 405 Method Not Allowed" on "add-view" (importatnt) (2h)
+- simplify randomize link (model/view) (2h)
+- check docker-test in readme.md (15min-30min)
+- correct tests code (add new views) (15min-30min)
 
 Version 1.1
-- correct docker-compose.yml (dblite to postgers/ settings)
 - add front page template
 - more advanced test + covarage
 
 Version 1.2
 - add Throttling-REST 'anon': '50/day', 'user': '1000/day'
 https://www.django-rest-framework.org/api-guide/throttling/
+- correct docker-compose.yml (dblite to postgers/ settings)
 
 Issues
 ------
@@ -85,14 +86,14 @@ Docker:
 	docker-compose up
 	In terminal you will see coverage.
 
-Testing:
+Testing: (TO BE CHECKED)
 --------
 
 	python manage.py test
 	coverage run --source='.' --omit='*migrations*,*init*,*wsgi*,*asgi*,*urls*,*manage*,*admin*,*apps*,*settings*,*test*,*seriali*' manage.py test
 	coverage report (or) coverage html
 
-Installation (working without celery-beat):
+Local installation (working without celery-beat): (TO BE CHECKED)
 -------------
 
 	Create new folder "URLCutterREST" and open it:
