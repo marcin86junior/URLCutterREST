@@ -45,29 +45,28 @@ class Redirector(View):
 def RemoveUnusedLinksZeroCount(request):
     links = Link.objects.filter(count=0)
     links.delete()
-    return HttpResponse('Removed all links that was never was used (count=0)')
+    return HttpResponse('Removed all links that was never was used in all time... <button onclick="history.back()">Go Back</button>')
 
 def RemoveUnusedLinksInMinute(request):
     links = Link.objects.filter(created_at__range=["2020-01-01", datetime.now()-timedelta(minutes=1)]).filter(count=0)
     links.delete()
-    return HttpResponse('Removed links never used 1 mins from create time.')
+    return HttpResponse('Removed links never used - 1 min from "create time"... <button onclick="history.back()">Go Back</button>')
 
 def RemoveUnusedLinksDayly(request):
     links = Link.objects.filter(created_at__range=["2020-01-01", datetime.now()-timedelta(hours=24)]).filter(count=0)
     links.delete()
-    return HttpResponse('Removed links never used in after 1 day from create time.')
-
+    return HttpResponse('Removed links never used - 1 day from "create time"... <button onclick="history.back()">Go Back</button>')
 def RemoveUsedLinksInMinute(request):
     links = Link.objects.filter(last_time_used__range=["2020-01-01", datetime.now()-timedelta(minutes=5)])
     links.delete()
-    return HttpResponse('Removed links never used in after 1 day from create time.')
+    return HttpResponse('Removed used links - 5 minutes from "last time used"... <button onclick="history.back()">Go Back</button>')
 
 def RemoveUsedLinksDayly(request):
     links = Link.objects.filter(last_time_used__range=["2020-01-01", datetime.now()-timedelta(days=5)])
     links.delete()
-    return HttpResponse('Removed links never used in after 1 day from create time.')
+    return HttpResponse('Removed used links - 1 day from "last time used"... <button onclick="history.back()">Go Back</button>')
 
 def RemoveAll(request):
     links = Link.objects.all()
     links.delete()
-    return HttpResponse('Removed all data!')
+    return HttpResponse('Removed all data! <button onclick="history.back()">Go Back</button>')

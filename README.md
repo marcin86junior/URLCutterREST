@@ -38,12 +38,12 @@ Version 0.9
 - put code on github - OK
 - 2nd run on docker / correct docker-entrypoint.sh - OK
 - correct tests code (path changed) - OK
-- correct text after removing links (httpresponse)
+- correct text in view after removing links (httpresponse) - OK
 - correct "HTTP 405 Method Not Allowed" on "add-view" (importatnt)
 - simplify randomize link (model/view)
 
 Version 1.0
-- remove page: "list view" / "remove links"
+- remove page: "list view" / "remove links" - ON HOLD
 - add celery module (will work only with docker)
 - check docker-test in readme.md
 - correct tests code (add new views)
