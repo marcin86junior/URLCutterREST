@@ -1,0 +1,15 @@
+*.pyc
+*~
+__pycache__
+myvenv
+db.sqlite3
+/static
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+*.pyc
+/mysite/migrations
+0001_initial.py
+0002_link_last_time_used.py
