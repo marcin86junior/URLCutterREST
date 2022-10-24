@@ -38,8 +38,12 @@ class Redirector(View):
 
     def get(self, request, shortener_link, *args, **kwargs):
         shortener_link=settings.HOST_URL+'/'+self.kwargs['shortener_link']
-        Link.objects.filter(shortened_link=shortener_link).first().increase_short_id_counter()
-        redirect_link=Link.objects.filter(shortened_link=shortener_link).first().original_link
+        try:
+            Link.objects.filter(shortened_link=shortener_link).first().increase_short_id_counter()
+            redirect_link=Link.objects.filter(shortened_link=shortener_link).first().original_link
+        except:
+            redirect_link=Link.objects.filter(shortened_link=shortener_link).first()
+            return redirect('http://127.0.0.1:8000/')
         return redirect(redirect_link)
 
 def RemoveUnusedLinksZeroCount(request):
