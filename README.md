@@ -8,10 +8,11 @@ URLCutterREST is a web application for "long link shortner".
 Django/REST technology is used for serialization and management of data.
 On "homepage" site you can: add data, check list, remove unused data.
 
-Celery and Celery-beat have now 2 tasks:
+Celery and Celery-beat have now 3 tasks:
 
 	- remove never unused links (created 1 day ago or more) at 8 AM
-	- remove used links (not used from 5 days or more) every 1h
+	- remove used links (not used from 5 days or more) at 11 PM
+	- remove unused links every 1min (TEST TASK/TURN IT OFF)
 
 Requirements:
 -------------
@@ -40,10 +41,10 @@ Version 0.9 (current)
 - correct tests code (path changed) - OK
 - correct text in page after removing links (httpresponse) - OK
 - setup celery + redis + "test task every 1min" - OK
-- add 3 celery tasks  10min / 1h / 1day - TODO (30min-1h)
+- add 3 celery tasks  1min / 8 AM / 23 PM - OK
+- add 2 to readme: remove test task and remove test view - OK
 
 Version 1.0
-- remove page: "list view" / "remove links" - ON HOLD
 - correct "HTTP 405 Method Not Allowed" on "add-view" (importatnt) (2h)
 - simplify randomize link (model/view) (2h)
 - check docker-test in readme.md (15min-30min)
@@ -69,9 +70,13 @@ Docker:
 
 	Create new folder "URLCutterREST" and open it:
 	git clone https://github.com/marcin86junior/URLCutterREST.git .
+
 	"CRLF->LF" in \mysite\docker-entrypoint.sh (for Windows users)   
-	Please setup crontab in \mysite\mysite\settings.py -> now it's 8:00 / evry 1h (you can change to every minute)
-	Run Doker Desktop in Windows.	
+
+	If you want go for "production stage app" please remove development parts:
+	in \mysite\mysite\settings.py -> remove test task "test_task_every_minute"
+	in urls.py -> remove: path('list/') and all path('remove_*)
+	
 	cd mysite\
 	docker-compose up
 	http://127.0.0.1:8000/
