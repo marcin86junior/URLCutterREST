@@ -45,6 +45,7 @@ Version 0.9
 
 Version 0.95 (current)
 - add "add-custom-premium link" - OK
+- BUG "add-custom-premium link" count +1 not working
 - add premium-time off to model / serializer (30min-1h)
 - add "remove view" for premium-time off
 - put to celery tasks
