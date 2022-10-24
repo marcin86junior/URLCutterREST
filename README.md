@@ -44,17 +44,14 @@ Version 0.9
 - add to readme: remove test task and remove test view for production - OK
 
 Version 1.0 (current)
-- check docker-test in readme.md (15min-30min)
-- correct tests code (add new views) (15min-30min)
+- add docker-test-cover to docker-entrypoint (working) - OK 
 
 Version 1.1
 - add "add-custom-premium link" - OK
 - BUG "add-custom-premium link" count +1 not working
-- add premium-time off to model / serializer (30min-1h)
-- add "remove view" for premium-time off
-- put to celery tasks
-- add front page template
-- more advanced test + covarage
+- add premium-custom-link time off (none, 1 day, 7days, 30days) to model / serializer (30min-1h)
+- put to celery tasks "premium time-off checker and removal code:
+- add TemplateHTMLRenderer to REST
 
 Version 1.2
 - add Throttling-REST 'anon': '50/day', 'user': '1000/day'
@@ -77,22 +74,7 @@ Docker:
 	docker-compose up
 	http://127.0.0.1:8000/
 
-	Docker tests:
-	You can add to \mysite\docker-entrypoint.sh this code:
-	echo "Test website"
-	python manage.py test
-	coverage run --source='.' --omit='*migrations*,*init*,*wsgi*,*asgi*,*urls*,*manage*,*admin*,*apps*,*settings*,*test*,*seriali*' manage.py test
-	coverage report
-	
-	docker-compose up
-	In terminal you will see coverage.
-
-Testing: (TO BE CHECKED)
---------
-
-	python manage.py test
-	coverage run --source='.' --omit='*migrations*,*init*,*wsgi*,*asgi*,*urls*,*manage*,*admin*,*apps*,*settings*,*test*,*seriali*' manage.py test
-	coverage report (or) coverage html
+	Docker tests are included in "\mysite\docker-entrypoint.sh"
 
 Local installation (working without celery-beat): (TO BE CHECKED)
 -------------
