@@ -76,7 +76,7 @@ Docker:
 
 	Docker tests are included in "\mysite\docker-entrypoint.sh"
 
-Local installation (working without celery-beat): (TO BE CHECKED)
+Local installation (working without celery-beat and 3 time tasks)
 -------------
 
 	Create new folder "URLCutterREST" and open it:
@@ -87,11 +87,9 @@ Local installation (working without celery-beat): (TO BE CHECKED)
 	cd mysite\
 	python manage.py migrate
 	python manage.py makemigrations
+	python manage.py migrate
 	python .\manage.py runserver
 	http://127.0.0.1:8000/
 
-	# probably we can run in new terminal celery / celery-beat somehow
-	..........
-
+	Test:
 	python manage.py test
-
