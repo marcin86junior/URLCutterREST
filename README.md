@@ -76,7 +76,7 @@ Docker:
 
 	Docker tests are included in "\mysite\docker-entrypoint.sh"
 
-Local installation (working without celery-beat and 3 time tasks)
+Local installation (working without celery-beat and 3 tasks)
 -------------
 
 	Create new folder "URLCutterREST" and open it:
