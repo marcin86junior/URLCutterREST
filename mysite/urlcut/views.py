@@ -7,7 +7,7 @@ from django.conf import settings
 from datetime import datetime, timedelta
 
 from .models import Link
-from .serializer import LinkSerializer, EditLinkSerializer
+from .serializer import LinkSerializer, LinkPremiumSerializer, EditLinkSerializer
 
 
 def Homepage(request):
@@ -22,6 +22,14 @@ class ShortenerCreateApiView(CreateAPIView):
     """
     queryset = Link.objects.all()
     serializer_class=LinkSerializer
+    http_method_names = ['post']
+
+class ShortenerCreatePremiumApiView(CreateAPIView):
+    """
+    This view should return link-generartor page.
+    """
+    queryset = Link.objects.all()
+    serializer_class=LinkPremiumSerializer
     http_method_names = ['post']
 
 class ShortenerListAPIView(ListAPIView):

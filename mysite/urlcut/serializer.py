@@ -9,6 +9,13 @@ class LinkSerializer(serializers.ModelSerializer):
         read_only_fields = ('shortened_link','count',)
 
 
+class LinkPremiumSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Link
+        fields = ['original_link', 'shortened_link',]
+        read_only_fields = ('count',)
+
+
 class EditLinkSerializer(serializers.ModelSerializer):
     class Meta:
         model = Link

@@ -34,7 +34,7 @@ Version 0.8
 - added model Link to admin
 - app 0.8 is working on pythonanywhere
 
-Version 0.9 (current)
+Version 0.9
 - put code on github - OK
 - 2nd run on docker / correct docker-entrypoint.sh - OK
 - correct tests code (path changed) - OK
@@ -43,9 +43,14 @@ Version 0.9 (current)
 - add 3 celery tasks  1min / 8 AM / 23 PM - OK
 - add to readme: remove test task and remove test view for production - OK
 
+Version 0.95 (current)
+- add "add-custom-premium link" - OK
+- add premium-time off to model / serializer (30min-1h)
+- add "remove view" for premium-time off
+- put to celery tasks
+
 Version 1.0
 - correct "HTTP 405 Method Not Allowed" on "add-view" (importatnt) (2h)
-- simplify randomize link (model/view) (2h)
 - check docker-test in readme.md (15min-30min)
 - correct tests code (add new views) (15min-30min)
 
