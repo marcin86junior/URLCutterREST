@@ -43,19 +43,16 @@ Version 0.9
 - add 3 celery tasks  1min / 8 AM / 23 PM - OK
 - add to readme: remove test task and remove test view for production - OK
 
-Version 0.95 (current)
+Version 1.0 (current)
+- check docker-test in readme.md (15min-30min)
+- correct tests code (add new views) (15min-30min)
+
+Version 1.1
 - add "add-custom-premium link" - OK
 - BUG "add-custom-premium link" count +1 not working
 - add premium-time off to model / serializer (30min-1h)
 - add "remove view" for premium-time off
 - put to celery tasks
-
-Version 1.0
-- correct "HTTP 405 Method Not Allowed" on "add-view" (importatnt) (2h)
-- check docker-test in readme.md (15min-30min)
-- correct tests code (add new views) (15min-30min)
-
-Version 1.1
 - add front page template
 - more advanced test + covarage
 
