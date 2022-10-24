@@ -68,7 +68,7 @@ Docker:
 
 	If you want go for "production stage app" please remove development parts:
 	in \mysite\mysite\settings.py -> remove test task "test_task_every_minute"
-	in urls.py -> remove: path('list/') and all path('remove_*)
+	in urls.py -> remove: path('link_premium_generator/), path('list/') and all path('remove_*)
 	
 	cd mysite\
 	docker-compose up
