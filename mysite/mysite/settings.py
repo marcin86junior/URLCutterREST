@@ -135,18 +135,18 @@ import mysite.tasks
 CELERY_BROKER_URL = "redis://redis:6379"
 CELERY_RESULT_BACKEND = "redis://redis:6379"
 CELERY_BEAT_SCHEDULE = {
-    "collect_data_every_day_at_8": {
-        "task": "mysite.tasks.collect_data_task",
+    "remove_links_at_8": {
+        "task": "mysite.tasks.remove1_task",
         "schedule": crontab(minute=0, hour=6), #redis time is -2h (6h->8h in Warsaw)
         #"schedule": crontab(minute="*/1"), #<--- setup for test (every minute)
     },
-       "backup_data_every_day_at_22": {
-        "task": "mysite.tasks.backup_task",
+       "remove_links_at_22": {
+        "task": "mysite.tasks.remove2_task",
         "schedule": crontab(minute=0, hour=21), #redis time is -2h (21h->23h in Warsaw)
         #"schedule": crontab(minute="*/1"), #<--- setup for test (every minute)
     },
        "test_task_every_minute": {
-        "task": "mysite.tasks.sample_task",
+        "task": "mysite.tasks.test_task",
         "schedule": crontab(minute="*/1"),
     },
 }

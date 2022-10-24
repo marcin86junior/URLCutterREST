@@ -64,7 +64,7 @@ def RemoveUsedLinksInMinute(request):
 def RemoveUsedLinksDayly(request):
     links = Link.objects.filter(last_time_used__range=["2020-01-01", datetime.now()-timedelta(days=5)])
     links.delete()
-    return HttpResponse('Removed used links - 1 day from "last time used"... <button onclick="history.back()">Go Back</button>')
+    return HttpResponse('Removed used links - 5 day from "last time used"... <button onclick="history.back()">Go Back</button>')
 
 def RemoveAll(request):
     links = Link.objects.all()

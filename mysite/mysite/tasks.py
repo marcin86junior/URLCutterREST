@@ -1,25 +1,27 @@
 from celery import shared_task
 from celery.utils.log import get_task_logger
 
-#from urlcut.models import Link
-
 logger = get_task_logger(__name__)
 
 @shared_task
-def sample_task(x=2, y=2):
-    #links = Link.objects.filter(count=0)
-    #links.delete()
-    logger.info("The sample test - remove all links never used every minute.")
-    return x + y
+def test_task():
+    from urlcut.models import Link
+    links = Link.objects.filter(count=0)
+    logger.info("Test task - remove links never used every minute")
+    links.delete()
 
 @shared_task
-def collect_data_task():
-    from urlcut.models import Links
-    logger.info("Working 1...")
-    # do something
+def remove1_task():
+    from urlcut.models import Link
+    from datetime import datetime, timedelta
+    links = Link.objects.filter(created_at__range=["2020-01-01", datetime.now()-timedelta(hours=24)]).filter(count=0)
+    logger.info('Removed links never used - 1 day from "create time"')
+    links.delete()
 
 @shared_task
-def backup_task():
-    from urlcut.models import Links
-    logger.info("Working 2...")
-    # do something
+def remove2_task():
+    from urlcut.models import Link
+    from datetime import datetime, timedelta
+    links = Link.objects.filter(last_time_used__range=["2020-01-01", datetime.now()-timedelta(days=5)])
+    logger.info('Removed used links - 5 day from "last time used"')
+    links.delete()
