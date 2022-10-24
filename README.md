@@ -23,7 +23,6 @@ Requirements:
 	Celery 5.1.2
 	Redis 3.5.3
 
-
 Roadmap
 -------
 
@@ -42,7 +41,7 @@ Version 0.9 (current)
 - correct text in page after removing links (httpresponse) - OK
 - setup celery + redis + "test task every 1min" - OK
 - add 3 celery tasks  1min / 8 AM / 23 PM - OK
-- add 2 to readme: remove test task and remove test view - OK
+- add to readme: remove test task and remove test view for production - OK
 
 Version 1.0
 - correct "HTTP 405 Method Not Allowed" on "add-view" (importatnt) (2h)
@@ -58,12 +57,6 @@ Version 1.2
 - add Throttling-REST 'anon': '50/day', 'user': '1000/day'
 https://www.django-rest-framework.org/api-guide/throttling/
 - correct docker-compose.yml (dblite to postgers/ settings)
-
-Issues
-------
-
-    - correct "HTTP 405 Method Not Allowed" on "add-view" -> 200 (important)
-	- sometimes djano run get and run count (+1) (to be corrected)
 
 Docker:
 -------
